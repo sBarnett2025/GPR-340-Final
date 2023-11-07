@@ -101,15 +101,22 @@ int main(int argc, char* argv[]) {
     bool done = false;
 
     // Declare rect of square
-    SDL_Rect squareRect;
+    SDL_Rect alRectangle;
+    SDL_Rect alRange;
 
     // Square dimensions: Half of the min(SCREEN_WIDTH, SCREEN_HEIGHT)
-    squareRect.w = std::min(width, height) / 2;
-    squareRect.h = std::min(width, height) / 2;
+    alRectangle.w = std::min(width, height) / 20;
+    alRectangle.h = std::min(width, height) / 20;
+    alRange.w = std::min(width, height) / 2;
+    alRange.h = std::min(width, height) / 2;
 
     // Square position: In the middle of the screen
-    squareRect.x = width / 2 - squareRect.w / 2;
-    squareRect.y = height / 2 - squareRect.h / 2;
+    alRectangle.x = width / 2 - alRectangle.w / 2;
+    alRectangle.y = height / 2 - alRectangle.h / 2;
+    alRange.x = alRectangle.x - alRange.w / 2 + alRectangle.w / 2;
+    alRange.y = alRectangle.y - alRange.w / 2 + alRectangle.w / 2;
+
+
 
     // Event loop
     while (!done) {
@@ -182,7 +189,10 @@ int main(int argc, char* argv[]) {
         // Set renderer color red to draw the square
         SDL_SetRenderDrawColor(renderer, 0xFF, 0x00, 0x00, 0xFF);
         // Draw filled square
-        SDL_RenderFillRect(renderer, &squareRect);
+        SDL_RenderFillRect(renderer, &alRectangle);
+        // draw range
+        SDL_SetRenderDrawColor(renderer, 0xFF, 0x00, 0x00, 0xFF);
+        SDL_RenderDrawRect(renderer, &alRange);
 
         // present ui on top of your drawings
         ImGui_ImplSDLRenderer_RenderDrawData(ImGui::GetDrawData());
