@@ -179,6 +179,13 @@ int main(int argc, char* argv[]) {
         }
 
 
+
+
+
+
+
+
+
         // Rendering
         ImGui::Render();
 
@@ -191,7 +198,7 @@ int main(int argc, char* argv[]) {
         // Draw filled square
         SDL_RenderFillRect(renderer, &alRectangle);
         // draw range
-        SDL_SetRenderDrawColor(renderer, 0xFF, 0x00, 0x00, 0xFF);
+        SDL_SetRenderDrawColor(renderer, 0xFF, 0xFF, 0x00, 0xFF);
         SDL_RenderDrawRect(renderer, &alRange);
 
         // present ui on top of your drawings
